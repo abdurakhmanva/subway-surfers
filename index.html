@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Subway Surfers 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Fredoka+One&family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Arcade HUD (In-game) -->
+    <div id="hud" class="overlay-screen hidden">
+      <!-- Top Left: Coins -->
+      <div class="hud-coins">
+        <div class="coin-icon">
+          <svg viewBox="0 0 32 32" width="28" height="28">
+            <circle cx="16" cy="16" r="14" fill="#ffd700" stroke="#b38600" stroke-width="2.5"/>
+            <circle cx="16" cy="16" r="9" fill="#ffea55" stroke="#b38600" stroke-width="1.5"/>
+            <polygon points="16,9 18,13 23,13 19,16 21,21 16,18 11,21 13,16 9,13 14,13" fill="#e6a800"/>
+          </svg>
+        </div>
+        <span id="coin-counter">0</span>
+      </div>
+
+      <!-- Top Right: Score & Multiplier -->
+      <div class="hud-score-panel">
+        <div class="multiplier-badge" id="multiplier-badge">x1</div>
+        <div class="score-display">
+          <span class="score-label">SCORE</span>
+          <span id="score-counter">000000</span>
+        </div>
+      </div>
+
+      <!-- Top Center Controls: Sound & Pause -->
+      <div class="hud-controls">
+        <button id="btn-sound" class="icon-btn" title="Toggle Sound">🔊</button>
+        <button id="btn-pause" class="icon-btn" title="Pause Game">⏸</button>
+      </div>
+
+      <!-- Active Powerup Badges -->
+      <div id="powerup-timers" class="powerup-container">
+        <!-- Dynamically rendered bars -->
+      </div>
+    </div>
+
+    <!-- Start / Main Menu Screen -->
+    <div id="start-screen" class="overlay-screen menu-overlay">
+      <div class="title-container">
+        <h1 class="game-logo">
+          <span class="logo-subway">SUBWAY</span>
+          <span class="logo-surfers">RUNNERS</span>
+        </h1>
+        <p class="subtitle">3D ENDLESS RUNNER</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="high-score-tag">
+          <span class="trophy-icon">🏆</span>
+          HIGH SCORE: <span id="menu-high-score">0</span>
+        </div>
+
+        <button id="btn-start" class="btn-primary pulse-btn">
+          TAP TO RUN
+        </button>
+
+        <!-- Controls Guide -->
+        <div class="controls-guide">
+          <div class="control-item">
+            <span class="key-badge">A / D</span> yoki <span class="key-badge">← / →</span>
+            <span class="control-desc">Yo‘lakni almashtirish</span>
+          </div>
+          <div class="control-item">
+            <span class="key-badge">W / Space</span> yoki <span class="key-badge">↑</span>
+            <span class="control-desc">Sakrash</span>
+          </div>
+          <div class="control-item">
+            <span class="key-badge">S</span> yoki <span class="key-badge">↓</span>
+            <span class="control-desc">Sirg‘alish & Tez tushish</span>
+          </div>
+          <div class="mobile-tip">
+            📱 Sensor ekranda: Chapga, o‘ngga, tepaga, pastga surish (Swipe)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="overlay-screen menu-overlay hidden">
+      <div class="gameover-card">
+        <h2 class="gameover-title">USHLANDINGIZ!</h2>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-title">OCHKO</span>
+            <span id="gameover-score" class="stat-value">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-title">TANGALAR</span>
+            <span id="gameover-coins" class="stat-value coin-val">0</span>
+          </div>
+        </div>
+
+        <div id="new-high-score-banner" class="new-high-badge hidden">
+          🌟 YANGI REKORD! 🌟
+        </div>
+
+        <div class="best-score-row">
+          <span>ENG YAXSHI NATIJA:</span>
+          <strong id="gameover-best">0</strong>
+        </div>
+
+        <button id="btn-restart" class="btn-primary pulse-btn">
+          QAYTADAN YUGURISH
+        </button>
+      </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="pause-screen" class="overlay-screen menu-overlay hidden">
+      <div class="pause-card">
+        <h2>PAUZA</h2>
+        <button id="btn-resume" class="btn-primary">DAVOM ETISH</button>
+        <button id="btn-quit" class="btn-secondary">BOSH MENU</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
